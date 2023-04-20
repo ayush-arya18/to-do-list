@@ -1,0 +1,20 @@
+<%- include("header") -%>
+        <div class="box" id="heading">
+            <h1><em><%=tday%> To-do-List</em></h1>
+        </div>
+        <div class="box">
+            <form action="/delete" method="post">
+                <% for (var i=0; i<itemd.length; i++ ) { %>
+                    <div class="item">
+                        <input onChange="this.form.submit()" type="checkbox" name="check" value="<%=itemd[i]._id%>">
+                        <p><%=itemd[i].name%></p>
+                    </div>
+                <% } %>
+                <input type="hidden" name="listName" value="<%= tday %>"></input>
+            </form>
+            <form class="item" action="/" method="post">
+                <input type="text" name="field1" placeholder="add item" autocomplete="off">
+                <button type="submit" name="btn1" value="<%=tday%>">+</button>
+            </form>
+        </div>
+<%- include("footer") -%>
